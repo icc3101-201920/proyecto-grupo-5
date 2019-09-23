@@ -66,6 +66,20 @@ namespace Prototype
                         ImageA temp3 = new ImageA();
                         Console.WriteLine("Please input the image path to import:");
                         string r = Console.ReadLine();
+                        if (File.Exists(r))
+                        {
+                            string j = Path.GetExtension(r);
+                            if (j!=".png" & j != ".jpeg" & j !=".bmp")
+                            {
+                                IOUser.ConsoleOutput("invalid file type");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            IOUser.ConsoleOutput("invalid path,please input again");
+                            break;
+                        }
                         Image temp = Image.FromFile(r);
 
                         string t = Path.GetFileName(r);
@@ -86,7 +100,8 @@ namespace Prototype
 
 
 
-                       //Console.WriteLine(temp3.Tags[0].Name);//
+                        IOUser.ConsoleOutput("the file: " + t + " has been imported");
+                        Console.WriteLine(temp3.Tags[0].Name);
                         
 
 
@@ -107,6 +122,7 @@ namespace Prototype
                                 Console.WriteLine("the file: " +h+ " has been selected" );
                                 
                                 IOUser.ConsoleListOutput2("what edition would you like to make to " + h + " ?", edit);
+
 
 
                             }
