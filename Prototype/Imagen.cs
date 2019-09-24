@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace Prototype
 {
-    class Imagen:Files
+    class Imagen:Archivo
     {
         private Image image;
         private int id, ranking;
@@ -13,7 +13,7 @@ namespace Prototype
         private string fecha, camara, resolucion, saturacion, relacionaspecto, genero;
         private bool favorito;
 
-        public Imagen(int id, int ranking, List<tag> tags, List<tag> personas, string fecha, string camara, string resolucion, string saturacion, string relacionaspecto, string genero, bool favorito)
+        public Imagen(string nombre,string direccionmemoria, int id, int ranking, List<tag> tags, List<tag> personas, string fecha, string camara, string resolucion, string saturacion, string relacionaspecto, string genero, bool favorito):base(nombre, direccionmemoria)
         {
             this.id = id;
             this.ranking = ranking;
@@ -27,7 +27,7 @@ namespace Prototype
             this.genero = genero;
             this.favorito = favorito;
         }
-        public Imagen()
+        public Imagen(string nombre, string direccionmemoria):base(nombre, direccionmemoria)
         {
 
         }
