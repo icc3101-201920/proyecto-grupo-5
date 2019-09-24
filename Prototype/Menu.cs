@@ -69,7 +69,7 @@ namespace Prototype
                         if (File.Exists(r))
                         {
                             string j = Path.GetExtension(r);
-                            if (j!=".png" & j != ".jpeg" & j !=".bmp")
+                            if (j!=".png" & j != ".jpeg" & j != ".bmp" & j != ".jpg")
                             {
                                 IOUser.ConsoleOutput("invalid file type");
                                 break;

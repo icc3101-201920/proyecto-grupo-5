@@ -7,7 +7,7 @@ namespace Prototype
     class NormalTag:tag
     {
         private Persona[] personas;
-        private File foto;
+        private Archivo foto;
         
         
     }
