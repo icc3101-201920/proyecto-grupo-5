@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace Prototype
 {
-    class Imagen
+    class Imagen:Files
     {
         private Image image;
         private int id, ranking;
