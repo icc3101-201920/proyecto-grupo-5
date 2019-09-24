@@ -28,19 +28,20 @@ namespace Prototype
 
 
 
-        public void agregarBusqueda(Imagen foto, List<Imagen> busqueda)
+        public Imagen agregarBusqueda(Imagen foto, List<Imagen> busqueda)
         {
             foreach (Imagen im in busqueda)
             {
                 if (im == foto)
                 {
-                    //return im;
+                    return im;
                 }
                 else
                 {
                     Console.WriteLine("No se pudo encontrar la imagen");
                 }
             }
+            return null;
         }
     }
 }
