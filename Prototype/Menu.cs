@@ -63,7 +63,7 @@ namespace Prototype
                         break;
                     case 1:
                         string imageS = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
-                        ImageA temp3 = new ImageA();
+                        Imagen temp3 = new Imagen();
                         Console.WriteLine("Please input the image path to import:");
                         string r = Console.ReadLine();
                         if (File.Exists(r))
@@ -91,7 +91,7 @@ namespace Prototype
                         */
                         temp.Save(imageS + @"\"+t);
                         Image temp2 = Image.FromFile(imageS + @"\" + t);
-                        temp3.Images = temp2;
+                        temp3.Image = temp2;
                         tag geno = new tag();
                         geno.Name = "importado1";
                         List<tag> gen = new List<tag>();
