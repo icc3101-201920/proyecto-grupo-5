@@ -8,6 +8,13 @@ namespace Prototype
     {
         private Persona[] personas;
         private Archivo foto;
+
+        public NormalTag(Persona[] personas,Archivo foto,string name) : base(name)
+        {
+            this.personas = personas;
+            this.foto = foto;
+            
+        }
         
         
     }
