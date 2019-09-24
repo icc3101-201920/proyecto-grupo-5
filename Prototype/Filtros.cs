@@ -6,9 +6,41 @@ namespace Prototype
 {
     class Filtros
     {
-        private List<String> caracteristicas;
+        private List<string> caracteristicas;
         private List<Persona> personas;
         private List<tag> tags;
-        private List<ImageA> fotos;
+        private List<Imagen> fotos;
+
+
+        public Filtros(List<string> caracteristicas, List<Persona> personas, List<tag> tags, List<Imagen> fotos)
+        {
+            this.caracteristicas = caracteristicas;
+            this.personas = personas;
+            this.tags = tags;
+            this.fotos = fotos;
+        }
+
+        public List<string> Caracteristicas { get => caracteristicas; set => caracteristicas = value; }
+        public List<Persona> Personas { get => personas; set => personas = value; }
+        public List<tag> Tags { get => tags; set => tags = value; }
+        public List<Imagen> Fotos { get => fotos; set => fotos = value; }
+
+
+
+
+        public void agregarBusqueda(Imagen foto, List<Imagen> busqueda)
+        {
+            foreach (Imagen im in busqueda)
+            {
+                if (im == foto)
+                {
+                    //return im;
+                }
+                else
+                {
+                    Console.WriteLine("No se pudo encontrar la imagen");
+                }
+            }
+        }
     }
 }
