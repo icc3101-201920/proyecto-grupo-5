@@ -42,11 +42,13 @@ namespace Prototype
 
         }
 
+
+        public int Id { get => id; set => id = value; }
         public Image Image { get => image; set => image = value; }
 
         public List<tag> Tags { get => tags; set => tags = value; }
         public List<tag> Personas { get => personas; set => personas = value; }
-        public int Raning { get => ranking; set => ranking = value; }
+        public int Ranking { get => ranking; set => ranking = value; }
         public string Fecha { get => fecha; set => fecha = value; }
         public string Camara { get => camara; set => camara = value; }
         public string Resolucion { get => resolucion; set => resolucion = value; }

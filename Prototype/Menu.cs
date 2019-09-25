@@ -50,6 +50,7 @@ namespace Prototype
             edit[6] = "Make Collage";
             string imageST = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
             string[] diro = Directory.GetFiles(imageST);
+            int counter = 0;
             foreach (string di in diro)
             {
                 Imagen tempo = new Imagen();
@@ -64,6 +65,11 @@ namespace Prototype
                 tempo.Nombre = Path.GetFileName(di);
                 tempo.Direccionmemoria = di;
                 tempo.Tags = testo2;
+                tempo.Id = counter;
+                tempo.Fecha = "25/09/2019";
+                counter++;
+
+
                 
                 
 

@@ -28,9 +28,12 @@ namespace Prototype
             }
             Console.WriteLine(s);
             Console.WriteLine("4 Path:" + desx.Direccionmemoria);
-            Console.WriteLine("Please input a key to choose again");
+            Console.WriteLine("5 id:" + desx.Id);
+            
+            Console.WriteLine("Please input the enter key to choose again");
+
             Console.ReadKey();
-            Console.SetCursorPosition(0, Console.CursorTop-6);
+            Console.SetCursorPosition(0, Console.CursorTop-7);
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, Console.CursorTop + 1 );
             Console.Write(new string(' ', Console.WindowWidth));
@@ -43,8 +46,10 @@ namespace Prototype
             Console.SetCursorPosition(0, Console.CursorTop + 1);
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, Console.CursorTop + 1);
-            
-            Console.SetCursorPosition(0, Console.CursorTop - 6);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop + 1);
+
+            Console.SetCursorPosition(0, Console.CursorTop - 7);
 
             //Console.Write(new string(' ', Console.WindowWidth));//
             //Console.Clear();//
