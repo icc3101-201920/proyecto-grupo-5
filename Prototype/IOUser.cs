@@ -57,6 +57,21 @@ namespace Prototype
 
             }
         }
+        public static void ConsoleListOutput4(string title, List<String> options)
+        {
+            ConsoleOutput(title);
+            for (int i = 0; i < options.Count; i++)
+            {
+                string s = Path.GetFileName(options[i]);
+                Console.WriteLine($"({i}) {s}");
+
+
+                if (i + 1 == options.Count)
+                {
+                    Console.WriteLine($"({i + 1})" + "Exit");
+                }
+            }
+        }
 
         public static int ConsoleReadInput()
         {

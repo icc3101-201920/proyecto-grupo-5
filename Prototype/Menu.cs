@@ -70,8 +70,8 @@ namespace Prototype
                 counter++;
 
 
-                
-                
+
+
 
                 /*char[] spearator = { ',' };
                 
@@ -81,6 +81,7 @@ namespace Prototype
                 Stream stream = new FileStream(strlist[0]+".bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 formatter.Serialize(stream, tempo);
                 stream.Close();*/
+                SPaths.Add(di);
                 BDE.Add(tempo);
 
 
@@ -102,15 +103,22 @@ namespace Prototype
                         IOUser.ConsoleOutput("The images on the directory are as follows:");
                         string imageP = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
                         string[] dir = Directory.GetFiles(imageP);
+                        List<String> BDEl = new List<string>();
+                      
+                        for (int cu=0; cu < SPaths.Count;cu++)
+                        {
+                            BDEl.Add(SPaths[cu]);
+                        }
+
                         
                         
                         foreach (string d in dir)
                         {
                             Console.WriteLine(d);
                         }
-                        IOUser.ConsoleListOutput3("please choose the one you want details on:", dir);
+                        IOUser.ConsoleListOutput4("please choose the one you want details on:", BDEl);
                         int u=0;
-                        while (u<dir.Length)
+                        while (u<BDEl.Count)
                         {
                             u = IOUser.ConsoleReadInput();
                             for (int l = 0; l < dir.Length; l++)
