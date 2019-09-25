@@ -10,6 +10,10 @@ namespace Prototype
     {
         private string name;
 
+        public tag()
+        {
+
+        }
         public tag(string name)
         {
             this.name = name;

@@ -4,11 +4,15 @@ using System.Text;
 
 namespace Prototype
 {
-    class Archivo
+    public class Archivo
     {
         private string nombre;
         private string direccionmemoria;
 
+        public Archivo()
+        {
+
+        }
         public Archivo(string nombre,string direccionmemoria)
         {
             this.direccionmemoria = direccionmemoria;

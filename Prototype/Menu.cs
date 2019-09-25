@@ -62,8 +62,8 @@ namespace Prototype
                         }
                         break;
                     case 1:
-                        string imageS = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
-                        Imagen temp3 = new Imagen();
+                        
+                        
                         Console.WriteLine("Please input the image path to import:");
                         string r = Console.ReadLine();
                         if (File.Exists(r))
@@ -80,27 +80,23 @@ namespace Prototype
                             IOUser.ConsoleOutput("invalid path,please input again");
                             break;
                         }
-                        Image temp = Image.FromFile(r);
+                        
+                        Imagen temp3= Importador.Tagger(Importador.import(r));
+                        //Image temp = Image.FromFile(r);//
 
-                        string t = Path.GetFileName(r);
+                        //string t = Path.GetFileName(r);//
                         /*Console.WriteLine(t);
                         foreach(int p in temp.PropertyIdList)
                         {
                             Console.WriteLine(p);
                         }
                         */
-                        temp.Save(imageS + @"\"+t);
-                        Image temp2 = Image.FromFile(imageS + @"\" + t);
-                        temp3.Image = temp2;
-                        tag geno = new tag();
-                        geno.Name = "importado1";
-                        List<tag> gen = new List<tag>();
-                        gen.Add(geno);
-                        temp3.Tags = gen;
 
 
 
-                        IOUser.ConsoleOutput("the file: " + t + " has been imported");
+
+                        string s = Path.GetFileName(r);
+                        IOUser.ConsoleOutput("the file: " + s + " has been imported");
                         Console.WriteLine(temp3.Tags[0].Name);
                         
 
