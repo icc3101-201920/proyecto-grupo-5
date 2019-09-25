@@ -65,6 +65,7 @@ namespace Prototype
                 tempo.Direccionmemoria = di;
                 tempo.Tags = testo2;
                 
+                
 
                 /*char[] spearator = { ',' };
                 

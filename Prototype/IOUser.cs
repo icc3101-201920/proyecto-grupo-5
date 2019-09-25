@@ -46,14 +46,15 @@ namespace Prototype
             for (int i = 0; i < options.Length; i++)
             {
                 string s = Path.GetFileName(options[i]);
-                if (i+1 == options.Length)
-                {
-                    Console.WriteLine($"({i+1})" + "Exit");
-                }
+            
                 
                 
                 Console.WriteLine($"({i}) {s}");
-                
+                if (i + 1 == options.Length)
+                {
+                    Console.WriteLine($"({i + 1})" + "Exit");
+                }
+
             }
         }
 
