@@ -6,12 +6,14 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Drawing;
 using System.Text;
+using System.Xml;
+
 
 namespace Prototype
 {
     class Menu
     {
-        //static List<Character> characters;//
+        
         static List<string> options = new List<string>()
         {
             "See Directory",
@@ -21,6 +23,8 @@ namespace Prototype
             "SlideShow",
             "Exit"
         };
+        static List<string> SPaths = new List<string>();
+        static List<Imagen> BDE = new List<Imagen>();   
         static void Main()
         {
             // Check for previous data
@@ -44,6 +48,42 @@ namespace Prototype
             edit[4] = "Make Fusion";
             edit[5] = "Make Mosaic";
             edit[6] = "Make Collage";
+            string imageST = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
+            string[] diro = Directory.GetFiles(imageST);
+            foreach (string di in diro)
+            {
+                Imagen tempo = new Imagen();
+                tag testo = new tag();
+                tag testo4 = new tag();
+                List<tag> testo2 = new List<tag>();
+                testo.Name = "prueba";
+                testo4.Name = "prueba2";
+                testo2.Add(testo);
+                testo2.Add(testo4);
+                tempo.Image = Image.FromFile(di);
+                tempo.Nombre = Path.GetFileName(di);
+                tempo.Direccionmemoria = di;
+                tempo.Tags = testo2;
+                
+
+                /*char[] spearator = { ',' };
+                
+                String[] strlist = tempo.Nombre.Split(spearator,2, StringSplitOptions.None);
+
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream(strlist[0]+".bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream, tempo);
+                stream.Close();*/
+                BDE.Add(tempo);
+
+
+            }
+            
+            
+            
+
+
+
 
             while (option != options.Count - 1)
             {
@@ -56,10 +96,28 @@ namespace Prototype
                         string imageP = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
                         string[] dir = Directory.GetFiles(imageP);
                         
+                        
                         foreach (string d in dir)
                         {
                             Console.WriteLine(d);
                         }
+                        IOUser.ConsoleListOutput3("please choose the one you want details on:", dir);
+                        int u=0;
+                        while (u<dir.Length)
+                        {
+                            u = IOUser.ConsoleReadInput();
+                            for (int l = 0; l < dir.Length; l++)
+                            {
+                                if (l == u)
+                                {
+                                    WindowStatus.Writer(BDE[u]);
+
+                                }
+
+                            }
+                        }
+                        
+                        //WindowStatus.Writer();//
                         break;
                     case 1:
                         
@@ -95,9 +153,12 @@ namespace Prototype
 
 
 
+                        SPaths.Add(r);
                         string s = Path.GetFileName(r);
                         IOUser.ConsoleOutput("the file: " + s + " has been imported");
                         Console.WriteLine(temp3.Tags[0].Name);
+                        BDE.Add(temp3);
+                        //WindowStatus.Writer(BDE[0]);//
                         
 
 

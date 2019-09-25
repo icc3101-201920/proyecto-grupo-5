@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.Xml.Serialization;
+using System.IO;
+
 
 namespace Prototype
 {
-    public class Imagen:Archivo
+    [Serializable]
+    public class Imagen : Archivo
     {
-        private Image image;
+
         private int id, ranking;
         private List<tag> tags, personas;
         private string fecha, camara, resolucion, saturacion, relacionaspecto, genero;
         private bool favorito;
+        //[XmlIgnore]//
+        private Image image;
 
         public Imagen()
         {
 
         }
-        public Imagen(string nombre,string direccionmemoria, int id, int ranking, List<tag> tags, List<tag> personas, string fecha, string camara, string resolucion, string saturacion, string relacionaspecto, string genero, bool favorito):base(nombre, direccionmemoria)
+        public Imagen(string nombre, string direccionmemoria, int id, int ranking, List<tag> tags, List<tag> personas, string fecha, string camara, string resolucion, string saturacion, string relacionaspecto, string genero, bool favorito) : base(nombre, direccionmemoria)
         {
             this.id = id;
             this.ranking = ranking;
@@ -31,7 +37,7 @@ namespace Prototype
             this.genero = genero;
             this.favorito = favorito;
         }
-        public Imagen(string nombre, string direccionmemoria):base(nombre, direccionmemoria)
+        public Imagen(string nombre, string direccionmemoria) : base(nombre, direccionmemoria)
         {
 
         }
@@ -45,7 +51,7 @@ namespace Prototype
         public string Camara { get => camara; set => camara = value; }
         public string Resolucion { get => resolucion; set => resolucion = value; }
         public string Saturacion { get => saturacion; set => saturacion = value; }
-        public string Realcionaspecto{ get => relacionaspecto; set => relacionaspecto = value; }
+        public string Realcionaspecto { get => relacionaspecto; set => relacionaspecto = value; }
         public string Genero { get => genero; set => genero = value; }
         public bool Favorito { get => favorito; set => favorito = value; }
     }
