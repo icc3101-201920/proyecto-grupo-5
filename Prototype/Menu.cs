@@ -195,7 +195,8 @@ namespace Prototype
                                 Console.WriteLine("the file: " +h+ " has been selected" );
                                 
                                 IOUser.ConsoleListOutput2("what edition would you like to make to " + h + " ?", edit);
-                                switch (choice)
+                                int editionChoice = IOUser.ConsoleReadInput();
+                                switch (editionChoice)
                                 {
                                     case 0:
                                         Console.WriteLine("please input the tag you wish to add to " + h);
@@ -203,6 +204,28 @@ namespace Prototype
                                         string t = IOUser.ConsoleReadInputs();
                                         Retoque.AddTag(imag, t);
                                         break;
+                                    case 1:
+                                        Console.WriteLine("please input the text you like to add to " + h);
+                                        Imagen imag1 = BDE[g];
+                                        string t1 = IOUser.ConsoleReadInputs();
+                                        Retoque.AddText(imag1, t1, 50, 50);
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("please input a score between 0 to 5 for " + h);
+                                        Imagen imag2 = BDE[g];
+                                        int t2 = IOUser.ConsoleReadInput();
+                                        while (t2<0 || t2 > 5)
+                                        {
+                                            Console.WriteLine("You enter an invalid rating");
+                                            Console.WriteLine("Please enter a number between 0 to 5");
+                                            t2 = IOUser.ConsoleReadInput();
+                                        }
+                                        Retoque.AddRanking(imag2, t2);
+                                        Console.WriteLine(h+" has now a score of "+ t2);
+                                        break;
+                                    case 3:
+                                        break;
+
                                 }
 
 
