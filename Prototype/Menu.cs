@@ -40,6 +40,7 @@ namespace Prototype
             */
             int option = -1;
 
+            //Lista Ediciones
             string[] edit = new string[7];
             edit[0] = "Add Tag";
             edit[1] = "Add Text";
@@ -48,6 +49,12 @@ namespace Prototype
             edit[4] = "Make Fusion";
             edit[5] = "Make Mosaic";
             edit[6] = "Make Collage";
+
+            //Lista Filtros
+            string[] filters = new string[2];
+            filters[0] = "Trasparente";
+            filters[1] = "Black and White";
+
             string imageST = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
             string[] diro = Directory.GetFiles(imageST);
             int counter = 0;
@@ -224,6 +231,11 @@ namespace Prototype
                                         Console.WriteLine(h+" has now a score of "+ t2);
                                         break;
                                     case 3:
+                                        Image imag3 = BDE[g].Image;
+                                        string imagePath = BDE[g].Direccionmemoria;
+                                        IOUser.ConsoleListOutput2("what filter would you like to add to " + h + " ?", filters);
+                                        int filterChoice = IOUser.ConsoleReadInput();
+                                        Retoque.AddFilter(imag3, imagePath, filterChoice);
                                         break;
 
                                 }
