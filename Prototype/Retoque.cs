@@ -4,16 +4,16 @@ using System.Text;
 
 namespace Prototype
 {
-    class Retoque
+    public static class  Retoque
     {
-        private Imagen edicion;
-
-        public Retoque (Imagen edicion)
+        
+        public static void AddTag (Imagen img, string text)
         {
-            this.edicion = edicion;
+            tag tagg = new tag();
+            tagg.Name = text;
+            img.Tags.Add(tagg);
         }
 
-        public Imagen Edicion { get => edicion; set => edicion = value; }
 
     }
 }

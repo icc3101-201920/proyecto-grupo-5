@@ -195,6 +195,15 @@ namespace Prototype
                                 Console.WriteLine("the file: " +h+ " has been selected" );
                                 
                                 IOUser.ConsoleListOutput2("what edition would you like to make to " + h + " ?", edit);
+                                switch (choice)
+                                {
+                                    case 0:
+                                        Console.WriteLine("please input the tag you wish to add to " + h);
+                                        Imagen imag = BDE[g];
+                                        string t = IOUser.ConsoleReadInputs();
+                                        Retoque.AddTag(imag, t);
+                                        break;
+                                }
 
 
 
