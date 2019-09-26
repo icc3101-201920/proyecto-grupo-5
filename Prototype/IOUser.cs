@@ -84,6 +84,17 @@ namespace Prototype
             }
             return optionNumber;
         }
+        public static string ConsoleReadInputs()
+        {
+            string option = Console.ReadLine();
+            int optionNumber;
+            while (int.TryParse(option, out optionNumber))
+            {
+                ConsoleError("Input must be string");
+                option = Console.ReadLine();
+            }
+            return option;
+        }
 
     }
 }

@@ -125,6 +125,7 @@ namespace Prototype
                             {
                                 if (l == u)
                                 {
+                                    
                                     WindowStatus.Writer(BDE[u]);
 
                                 }
@@ -245,7 +246,7 @@ namespace Prototype
                         }*/
                         break;
                     case 4:
-                        //characters.Add(new Warrior());//
+                        IOUser.ConsoleOutput("SlideShow Option hasnt been implemented yet please choose another option");
                         break;
                     default:
                         //SaveData();//
