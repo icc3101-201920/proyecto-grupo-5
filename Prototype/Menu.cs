@@ -416,10 +416,14 @@ namespace Prototype
                                     Nfilter.Filters = st;
                                     Lfiltros.Add(Nfilter);
                                     Searchi.Filtros = Lfiltros;
-                                    Searchi.Searchterm = inputs;
+                                    
 
-                                    Console.WriteLine("please input the" + WindowStatus.ShowSearch(Searchi.Filtros[0].Filters) + "you'd like to search(use the/ separator in each one):");
-
+                                    Console.WriteLine("please input the " + WindowStatus.ShowSearch(Searchi.Filtros[0].Filters) + " you'd like to search(use the/ separator in each one):");
+                                    string read = IOUser.ConsoleReadInputs();
+                                    
+                                    Filtros per = IOUser.SearchParse2(read, Searchi.Filtros[0].Filters);
+                                    Searchi.Filtros.Add(per);
+                                    Searchi.Searchterm = read;
 
                                     SmartSearch.Add(Searchi);
                                     break;

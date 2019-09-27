@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prototype
 {
-    class Persona
+    public class Persona
     {
         private int idPersona;
         private int[] nacimiento;
@@ -12,6 +12,10 @@ namespace Prototype
         List<Imagen> fotos;
         //icono AVATAR
 
+        public Persona()
+        {
+
+        }
         public Persona(int idPersona, int[] nacimiento, string nombre, string sexo, string nacionalidad, string colorPE, string colorPI, string colorOJ, List<Imagen> fotos)
         {
             this.idPersona = idPersona;

@@ -64,9 +64,16 @@ namespace Prototype
         public static string ShowSearch(List<string> sea)
         {
             string p = "";
+            int counter = 0;
             foreach (string se in sea)
             {
+                if (counter == sea.Count - 1)
+                {
+                    p = p + se;
+                    return p;
+                }
                 p = p + se + "/";
+                counter++;
             }
             return p;
         }

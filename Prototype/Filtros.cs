@@ -4,11 +4,16 @@ using System.Text;
 
 namespace Prototype
 {
-    class Filtros
+    public class Filtros
     {
         private List<string> caracteristicas;
         private List<Persona> personas;
         private List<tag> tags;
+        private List<string> characteristic;
+        private List<string> saturation;
+        private List<string> resolution;
+        private List<string> aspectratio;
+        private List<int> rating;
         private List<Imagen> fotos;
         private List<string> filters;
 
@@ -30,6 +35,11 @@ namespace Prototype
         public List<tag> Tags { get => tags; set => tags = value; }
         public List<Imagen> Fotos { get => fotos; set => fotos = value; }
         public List<string> Filters { get => filters; set => filters = value; }
+        public List<string> Characteristic { get => characteristic; set => characteristic = value; }
+        public List<string> Saturation { get => saturation; set => saturation = value; }
+        public List<string> Resolution { get => resolution; set => resolution = value; }
+        public List<string> Aspectratio { get => aspectratio; set => aspectratio = value; }
+        public List<int> Rating { get => rating; set => rating = value; }
 
         public Imagen agregarBusqueda(Imagen foto, List<Imagen> busqueda)
         {

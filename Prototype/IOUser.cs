@@ -119,6 +119,85 @@ namespace Prototype
             }
             return k;
         }
+        public static Filtros SearchParse2(string search,List<string> list)
+        {
+            string[] t = search.Split('/');
+            List<int> k = new List<int>();
+            int Counter = 0;
+
+            Filtros filter = new Filtros();
+            List<tag> Ltag = new List<tag>();
+            List<Persona> Lperson = new List<Persona>();
+            List<string> Lcharacte = new List<string>();
+            List<string> Lsaturation = new List<string>();
+            List<string> Lresolution = new List<string>();
+            List<string> Laspect = new List<string>();
+            List<int> Lrating = new List<int>();
+
+
+
+            foreach (string st in list)
+            {
+                if (list[Counter] == "tags")
+                {
+                    tag taggi = new tag();
+                    taggi.Name= t[Counter];
+                    Ltag.Add(taggi);
+
+                }
+                if (list[Counter] == "people")
+                {
+                    Persona personi = new Persona();
+                    personi.Nombre = t[Counter];
+                    Lperson.Add(personi);
+
+                }
+                if (list[Counter] == "characteristics")
+                {
+                    string Charai;
+                    Charai = t[Counter];
+                    Lcharacte.Add(Charai);
+                }
+                if (list[Counter] == "saturation")
+                {
+                    string sati;
+                    sati = t[Counter];
+                    Lsaturation.Add(sati);
+
+                }
+                if (list[Counter] == "resolution")
+                {
+                    string resoli;
+                    resoli = t[Counter];
+                    Lresolution.Add(resoli);
+                }
+                if (list[Counter] == "aspectratio")
+                {
+                    string asi;
+                    asi = t[Counter];
+                    Laspect.Add(asi);
+                }
+                if (list[Counter] == "rating")
+                {
+                    int rati;
+                    rati = Int32.Parse(t[Counter]);
+                    Lrating.Add(rati);
+                }
+                Counter++;
+
+
+            }
+            filter.Tags = Ltag;
+            filter.Personas = Lperson;
+            filter.Characteristic = Lcharacte;
+            filter.Saturation = Lsaturation;
+            filter.Resolution = Lresolution;
+            filter.Aspectratio = Laspect;
+            filter.Rating = Lrating;
+
+            
+            return filter;
+        }
 
     }
 }
