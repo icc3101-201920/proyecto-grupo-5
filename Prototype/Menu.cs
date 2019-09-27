@@ -373,7 +373,7 @@ namespace Prototype
                                     IOUser.ConsoleListOutput3("Please Select the filters You'd like for the search", SearchF);
                                     string searchI = "Note that for multiple filters you have to use the , separator between your input";
                                     Console.WriteLine(searchI);
-                                    string inputs = IOUser.ConsoleReadInputs();
+                                    string inputs = Console.ReadLine();
                                     List<int> sinputs = IOUser.SearchParse(inputs);
 
                                     List<Filtros> Lfiltros = new List<Filtros>();
@@ -437,12 +437,14 @@ namespace Prototype
                                     Filtros per = IOUser.SearchParse2(read, Searchi.Filtros[0].Filters);
                                     Searchi.Filtros.Add(per);
                                     Searchi.Searchterm = read;
-                                    List<List<string>> seargo = new List<List<string>>();
-                                    seargo=WindowStatus.FilterSearch(Searchi.Filtros[1], BDE);
+                                    //List<List<string>> seargo = new List<List<string>>();//
+                                    List<List<string>> seargo =WindowStatus.FilterSearch(Searchi.Filtros[1], BDE);
+
                                     int counta = 0;
                                     foreach (List<string> stri in seargo)
                                     {
                                         IOUser.ConsoleListOutput($"The images that coincide with the {SearchD[counta]} element inputed are as follows",stri);
+                                        counta++;
                                     }
 
                                     SmartSearch.Add(Searchi);

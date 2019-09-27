@@ -89,34 +89,37 @@ namespace Prototype
             List<string> Srating = new List<string>();
             for (int i = 0; i < BD.Count; i++)
             {
-                if (BD[i].Tags[0].Name==search.Tags[0].Name)
+               
+                if (BD[i].Tags.IndexOf(search.Tags[0]) >= 0)
                 {
-                    Stag.Add(BD[i].Direccionmemoria);
+                    string di2 = BD[i].Direccionmemoria;
+                    Stag.Add(di2);
                 }
-                if (BD[i].Persona[0].Nombre==search.Personas[0].Nombre)
+                if (BD[i].Persona.IndexOf(search.Personas[0])>=0)
                 {
-                    Sperson.Add(BD[i].Direccionmemoria);
+                    string di1 = BD[i].Direccionmemoria;
+                    Sperson.Add(di1);
                 }
-                if (BD[i].Chara.Contains(search.Characteristic[0]))
+                /*if (BD[i].Chara.IndexOf(search.Characteristic[0])>=0)
                 {
                     Scharacte.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Saturacion==search.Saturation[0])
+                if (BD[i].Saturacion.IndexOf(search.Saturation[0])>=0)
                 {
                     Ssaturation.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Resolucion==search.Resolution[0])
+                if (BD[i].Resolucion.IndexOf(search.Resolution[0])>=0)
                 {
                     Sresolution.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Realcionaspecto==search.Aspectratio[0])
+                if (BD[i].Realcionaspecto.IndexOf(search.Aspectratio[0])>=0)
                 {
                     Saspect.Add(BD[i].Direccionmemoria);
                 }
                 if (BD[i].Ranking==search.Rating[0])
                 {
                     Srating.Add(BD[i].Direccionmemoria);
-                }
+                }*/
             }
             Searchgo.Add(Stag);
             Searchgo.Add(Sperson);
@@ -129,5 +132,12 @@ namespace Prototype
 
 
         }
+
+        /*public static void FilterSearch2(List<Imagen> imagena, string read)
+        {
+            string[] readi = read.Split('/');
+
+
+        }*/
     }
 }
