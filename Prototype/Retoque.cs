@@ -42,7 +42,7 @@ namespace Prototype
         }
 
         //Creates a blank memory Bitmap having the same size dimensions as the source image
-        private static Bitmap GetArgbCopy(Image sourceImage)
+        public static Bitmap GetArgbCopy(Image sourceImage)
         {
             Bitmap bmpNew = new Bitmap(sourceImage.Width, sourceImage.Height, PixelFormat.Format32bppArgb);
 
