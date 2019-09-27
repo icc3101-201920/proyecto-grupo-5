@@ -93,7 +93,10 @@ namespace Prototype
                 Imagen tempo = new Imagen();
                 tag testo = new tag();
                 tag testo4 = new tag();
+                Persona peron = new Persona();
+                List<Persona> perones = new List<Persona>();
                 List<tag> testo2 = new List<tag>();
+                List<string> chare = new List<string>();
                 testo.Name = "prueba";
                 testo4.Name = "prueba2";
                 testo2.Add(testo);
@@ -104,6 +107,16 @@ namespace Prototype
                 tempo.Tags = testo2;
                 tempo.Id = counter;
                 tempo.Fecha = "25/09/2019";
+                peron.Nombre = "pepe";
+                perones.Add(peron);
+                tempo.Persona = perones;
+                string kjk = "new";
+                chare.Add(kjk);
+                tempo.Chara = chare;
+                tempo.Saturacion = kjk;
+                tempo.Resolucion = kjk;
+                tempo.Realcionaspecto = kjk;
+                tempo.Ranking = 1;
                 counter++;
 
 
@@ -424,7 +437,13 @@ namespace Prototype
                                     Filtros per = IOUser.SearchParse2(read, Searchi.Filtros[0].Filters);
                                     Searchi.Filtros.Add(per);
                                     Searchi.Searchterm = read;
-
+                                    List<List<string>> seargo = new List<List<string>>();
+                                    seargo=WindowStatus.FilterSearch(Searchi.Filtros[1], BDE);
+                                    int counta = 0;
+                                    foreach (List<string> stri in seargo)
+                                    {
+                                        IOUser.ConsoleListOutput($"The images that coincide with the {SearchD[counta]} element inputed are as follows",stri);
+                                    }
 
                                     SmartSearch.Add(Searchi);
                                     break;

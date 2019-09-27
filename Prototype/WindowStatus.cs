@@ -89,11 +89,11 @@ namespace Prototype
             List<string> Srating = new List<string>();
             for (int i = 0; i < BD.Count; i++)
             {
-                if (BD[i].Tags.Contains(search.Tags[0]))
+                if (BD[i].Tags[0].Name==search.Tags[0].Name)
                 {
                     Stag.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Persona.Contains(search.Personas[0]))
+                if (BD[i].Persona[0].Nombre==search.Personas[0].Nombre)
                 {
                     Sperson.Add(BD[i].Direccionmemoria);
                 }
@@ -101,15 +101,15 @@ namespace Prototype
                 {
                     Scharacte.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Saturacion.Contains(search.Saturation[0]))
+                if (BD[i].Saturacion==search.Saturation[0])
                 {
                     Ssaturation.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Resolucion.Contains(search.Resolution[0]))
+                if (BD[i].Resolucion==search.Resolution[0])
                 {
                     Sresolution.Add(BD[i].Direccionmemoria);
                 }
-                if (BD[i].Realcionaspecto.Contains(search.Aspectratio[0]))
+                if (BD[i].Realcionaspecto==search.Aspectratio[0])
                 {
                     Saspect.Add(BD[i].Direccionmemoria);
                 }
