@@ -425,6 +425,7 @@ namespace Prototype
                                     Searchi.Filtros.Add(per);
                                     Searchi.Searchterm = read;
 
+
                                     SmartSearch.Add(Searchi);
                                     break;
                                 case 1:

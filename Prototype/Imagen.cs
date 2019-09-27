@@ -14,7 +14,10 @@ namespace Prototype
 
         private int id, ranking;
         private List<tag> tags, personas;
+        private List<Persona> persona;
+        private List<string> chara;
         private string fecha, camara, resolucion, saturacion, relacionaspecto, genero;
+        private string rating;
         private bool favorito;
         //[XmlIgnore]//
         private Image image;
@@ -56,5 +59,8 @@ namespace Prototype
         public string Realcionaspecto { get => relacionaspecto; set => relacionaspecto = value; }
         public string Genero { get => genero; set => genero = value; }
         public bool Favorito { get => favorito; set => favorito = value; }
+        public List<Persona> Persona { get => persona; set => persona = value; }
+        public List<string> Chara { get => chara; set => chara = value; }
+        public string Rating { get => rating; set => rating = value; }
     }
 }

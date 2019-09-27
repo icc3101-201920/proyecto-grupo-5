@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Drawing;
 using System.IO;
 
 namespace Prototype
@@ -76,6 +76,58 @@ namespace Prototype
                 counter++;
             }
             return p;
+        }
+        public static List<List<string>> FilterSearch(Filtros search,List<Imagen> BD)
+        {
+            List<List<string>> Searchgo = new List<List<string>>();
+            List<string> Stag = new List<string>();
+            List<string> Sperson = new List<string>();
+            List<string> Scharacte = new List<string>();
+            List<string> Ssaturation = new List<string>();
+            List<string> Sresolution = new List<string>();
+            List<string> Saspect = new List<string>();
+            List<string> Srating = new List<string>();
+            for (int i = 0; i < BD.Count; i++)
+            {
+                if (BD[i].Tags.Contains(search.Tags[0]))
+                {
+                    Stag.Add(BD[i].Direccionmemoria);
+                }
+                if (BD[i].Persona.Contains(search.Personas[0]))
+                {
+                    Sperson.Add(BD[i].Direccionmemoria);
+                }
+                if (BD[i].Chara.Contains(search.Characteristic[0]))
+                {
+                    Scharacte.Add(BD[i].Direccionmemoria);
+                }
+                if (BD[i].Saturacion.Contains(search.Saturation[0]))
+                {
+                    Ssaturation.Add(BD[i].Direccionmemoria);
+                }
+                if (BD[i].Resolucion.Contains(search.Resolution[0]))
+                {
+                    Sresolution.Add(BD[i].Direccionmemoria);
+                }
+                if (BD[i].Realcionaspecto.Contains(search.Aspectratio[0]))
+                {
+                    Saspect.Add(BD[i].Direccionmemoria);
+                }
+                if (BD[i].Ranking==search.Rating[0])
+                {
+                    Srating.Add(BD[i].Direccionmemoria);
+                }
+            }
+            Searchgo.Add(Stag);
+            Searchgo.Add(Sperson);
+            Searchgo.Add(Scharacte);
+            Searchgo.Add(Ssaturation);
+            Searchgo.Add(Sresolution);
+            Searchgo.Add(Saspect);
+            Searchgo.Add(Srating);
+            return Searchgo;
+
+
         }
     }
 }
