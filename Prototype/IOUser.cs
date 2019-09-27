@@ -107,5 +107,18 @@ namespace Prototype
             return option;
         }
 
+        public static List<int> SearchParse(string search)
+        {
+            string[] t = search.Split(',');
+            List<int> k = new List<int>();
+
+            for (int p = 0; p < t.Length; p++)
+            {
+                int ki = Int32.Parse(t[p]);
+                k.Add(ki);
+            }
+            return k;
+        }
+
     }
 }

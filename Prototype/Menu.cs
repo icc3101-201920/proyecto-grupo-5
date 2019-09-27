@@ -25,6 +25,7 @@ namespace Prototype
         };
         static List<string> SPaths = new List<string>();
         static List<Imagen> BDE = new List<Imagen>();
+        static List<Buscador> SmartSearch = new List<Buscador>();
         static void Main()
         {
             // Check for previous data
@@ -56,6 +57,32 @@ namespace Prototype
             filters[1] = "Black and White";
             filters[2] = "Sepia";
             filters[3] = "Negative";
+
+
+            string[] SearchE = new string[2];
+            SearchE[0] = "Normal Search";
+            SearchE[1] = "Special Search";
+
+
+            string[] SearchF = new string[7];
+            SearchF[0] = "By Tag";
+
+            SearchF[1] = "By People";
+            SearchF[2] = "By People Characteristic";
+            SearchF[3] = "By Saturation";
+            SearchF[4] = "By Resolution";
+            SearchF[5] = "By resolution ratio";
+            SearchF[6] = "By rating";
+
+            string[] SearchD = new string[7];
+            SearchD[0] = "tags";
+
+            SearchD[1] = "people";
+            SearchD[2] = "characteristics";
+            SearchD[3] = "saturation";
+            SearchD[4] = "resolution";
+            SearchD[5] = "aspectratio";
+            SearchD[6] = "rating";
 
 
             string imageST = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
@@ -321,7 +348,89 @@ namespace Prototype
                         }*/
                         break;
                     case 3:
-                        IOUser.ConsoleOutput("Please input the term to search:");
+                        IOUser.ConsoleListOutput2("Please select the type of search you'd like to use:", SearchE);
+                        int choice4 = 2;
+                        while (choice4 != 0 & choice4 != 1)
+                        {
+                            choice4 = IOUser.ConsoleReadInput();
+                            switch (choice4)
+
+                            {
+                                case 0:
+                                    IOUser.ConsoleListOutput3("Please Select the filters You'd like for the search", SearchF);
+                                    string searchI = "Note that for multiple filters you have to use the , separator between your input";
+                                    Console.WriteLine(searchI);
+                                    string inputs = IOUser.ConsoleReadInputs();
+                                    List<int> sinputs = IOUser.SearchParse(inputs);
+
+                                    List<Filtros> Lfiltros = new List<Filtros>();
+                                    Buscador Searchi = new Buscador();
+                                    Filtros Nfilter = new Filtros();
+                                    List<string> st = new List<string>();
+
+
+                                    for (int it = 0; it < SearchF.Length; it++)
+                                    {
+                                        for (int ito = 0; ito < sinputs.Count; ito++)
+                                        {
+
+                                            if (SearchD[it] == SearchD[sinputs[ito]])
+                                            {
+
+
+                                                if (SearchD[it] == "tags")
+                                                {
+                                                    st.Add("tags");
+                                                }
+                                                if (SearchD[it] == "people")
+                                                {
+                                                    st.Add("people");
+                                                }
+                                                if (SearchD[it] == "characteristics")
+                                                {
+                                                    st.Add("characteristics");
+                                                }
+                                                if (SearchD[it] == "saturation")
+                                                {
+                                                    st.Add("saturation");
+                                                }
+                                                if (SearchD[it] == "resolution")
+                                                {
+                                                    st.Add("resolution");
+                                                }
+                                                if (SearchD[it] == "aspectratio")
+                                                {
+                                                    st.Add("aspectratio");
+                                                }
+                                                if (SearchD[it] == "rating")
+                                                {
+                                                    st.Add("rating");
+                                                }
+
+
+                                            }
+                                        }
+
+
+                                    }
+                                    Nfilter.Filters = st;
+                                    Lfiltros.Add(Nfilter);
+                                    Searchi.Filtros = Lfiltros;
+                                    Searchi.Searchterm = inputs;
+
+                                    Console.WriteLine("please input the" + WindowStatus.ShowSearch(Searchi.Filtros[0].Filters) + "you'd like to search(use the/ separator in each one):");
+
+
+                                    SmartSearch.Add(Searchi);
+                                    break;
+                                case 1:
+
+                                    break;
+                                default:
+                                    IOUser.ConsoleError("input must be within range");
+                                    break;
+                            }
+                        }
                         break;
                     case 4:
                         IOUser.ConsoleOutput("SlideShow Option hasnt been implemented yet please choose another option");

@@ -61,5 +61,14 @@ namespace Prototype
 
 
         }
+        public static string ShowSearch(List<string> sea)
+        {
+            string p = "";
+            foreach (string se in sea)
+            {
+                p = p + se + "/";
+            }
+            return p;
+        }
     }
 }

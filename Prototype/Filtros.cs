@@ -10,8 +10,13 @@ namespace Prototype
         private List<Persona> personas;
         private List<tag> tags;
         private List<Imagen> fotos;
+        private List<string> filters;
 
 
+        public Filtros()
+        {
+
+        }
         public Filtros(List<string> caracteristicas, List<Persona> personas, List<tag> tags, List<Imagen> fotos)
         {
             this.caracteristicas = caracteristicas;
@@ -24,9 +29,7 @@ namespace Prototype
         public List<Persona> Personas { get => personas; set => personas = value; }
         public List<tag> Tags { get => tags; set => tags = value; }
         public List<Imagen> Fotos { get => fotos; set => fotos = value; }
-
-
-
+        public List<string> Filters { get => filters; set => filters = value; }
 
         public Imagen agregarBusqueda(Imagen foto, List<Imagen> busqueda)
         {
