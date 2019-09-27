@@ -218,6 +218,46 @@ namespace Prototype
             }
 
         }
+        public static Image collage(int anchoT, int largoT, int anchoI, int largoI, List<Image> imagenes)
+        {
+
+            Bitmap collage = new Bitmap(anchoT, largoT);
+            int next_x = 0;
+            int next_y = 0;
+            Color p;
+            Image ImagenCollage;
+
+            foreach (Image img in imagenes)
+            {
+                Bitmap bmp = new Bitmap(img);
+
+                for (int y = next_y; y < next_x + anchoI; y++)
+                {
+                    for (int x = next_x; x < next_y + largoI; x++)
+                    {
+                        p = bmp.GetPixel(x, y);
+                        collage.SetPixel(x, y, p);
+                    }
+                }
+                if (next_x + 2 * anchoI < anchoT)
+                {
+                    next_x += anchoI;
+
+                }
+                else
+                {
+                    next_x = 0;
+                    next_y += largoI;
+                    if (next_y + largoI > largoT)
+                    {
+                        ImagenCollage = collage;
+                        return ImagenCollage;
+                    }
+                }
+            }
+            ImagenCollage = collage;
+            return ImagenCollage;
+        }
 
 
     }
