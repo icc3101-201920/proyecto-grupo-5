@@ -95,14 +95,42 @@ namespace Prototype
         public static Bitmap BW (this Image sourceImage)
         {
             ColorMatrix colorMatrix = new ColorMatrix(new float[][]
-                                {
-                            new float[]{.3f, .3f, .3f, 0, 0},
-                            new float[]{.59f, .59f, .59f, 0, 0},
-                            new float[]{.11f, .11f, .11f, 0, 0},
-                            new float[]{0, 0, 0, 1, 0},
-                            new float[]{0, 0, 0, 0, 1}
-                                });
+            {
+                    new float[]{.3f, .3f, .3f, 0, 0},
+                    new float[]{.59f, .59f, .59f, 0, 0},
+                    new float[]{.11f, .11f, .11f, 0, 0},
+                    new float[]{0, 0, 0, 1, 0},
+                    new float[]{0, 0, 0, 0, 1}
+            });
 
+
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap Sepia (this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+            {
+                   new float[] {.393f, .349f, .272f, 0, 0},
+                   new float[] {.769f, .686f, .534f, 0, 0},
+                   new float[] {.189f, .168f, .131f, 0, 0},
+                   new float[] {0, 0, 0, 1, 0},
+                   new float[] {0, 0, 0, 0, 1}
+            });
+
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap Negative(this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                                                {
+                                            new float[] {-1, 0, 0, 0, 0},
+                                            new float[] {0, -1, 0, 0, 0},
+                                            new float[] {0, 0, -1, 0, 0},
+                                            new float[] {0, 0, 0, 1, 0},
+                                            new float[] {1, 1, 1, 1, 1}
+                                                });
 
             return ApplyColorMatrix(sourceImage, colorMatrix);
         }
@@ -119,15 +147,26 @@ namespace Prototype
                     temp.Save(DIR + @"\" + t);
                     return temp;
                     
-
                 case 1:
                     Bitmap bitmap1 = BW(img);
                     Image temp1 = bitmap1;
                     string t1 = Path.GetFileName(imgPath);
                     temp1.Save(DIR + @"\" + t1);
                     return temp1;
-                    
-                    
+
+                case 2:
+                    Bitmap bitmap2 = Sepia(img);
+                    Image temp2 = bitmap2;
+                    string t2 = Path.GetFileName(imgPath);
+                    temp2.Save(DIR + @"\" + t2);
+                    return temp2;
+
+                case 3:
+                    Bitmap bitmap3 = Negative(img);
+                    Image temp3 = bitmap3;
+                    string t3 = Path.GetFileName(imgPath);
+                    temp3.Save(DIR + @"\" + t3);
+                    return temp3;
             }
             return null;
         }

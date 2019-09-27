@@ -24,7 +24,7 @@ namespace Prototype
             "Exit"
         };
         static List<string> SPaths = new List<string>();
-        static List<Imagen> BDE = new List<Imagen>();   
+        static List<Imagen> BDE = new List<Imagen>();
         static void Main()
         {
             // Check for previous data
@@ -51,9 +51,12 @@ namespace Prototype
             edit[6] = "Make Collage";
 
             //Lista Filtros
-            string[] filters = new string[2];
-            filters[0] = "Trasparente";
+            string[] filters = new string[4];
+            filters[0] = "Trasparent";
             filters[1] = "Black and White";
+            filters[2] = "Sepia";
+            filters[3] = "Negative";
+
 
             string imageST = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\image";
             string[] diro = Directory.GetFiles(imageST);
