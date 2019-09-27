@@ -5,24 +5,27 @@ using System.Text;
 
 namespace Prototype
 {
-    class ProduccionImagen
+    public static class ProduccionImagen
     {
-        private List<Imagen> imagenes;
-        private string color;
+        //private List<Imagen> imagenes;//
+        //private string color;//
 
-        public ProduccionImagen(List<Imagen> imagenes, string color)
+        /*public ProduccionImagen(List<Imagen> imagenes, string color)
         {
             this.imagenes = imagenes;
             this.color = color;
-        }
+        }*/
 
-        public List<Imagen> Imagenes { get => imagenes; set => imagenes= value; }
-        public string Color { get => color; set => color = value; }
+        //public List<Imagen> Imagenes { get => imagenes; set => imagenes = value; }//
+        //public string Color { get => color; set => color = value; }//
+
+       
 
         public static Image fusion(Image Imagen1,Image Imagen2)
         {
             Bitmap bmp1 = new Bitmap(Imagen1);
             Bitmap bmp2 = new Bitmap(Imagen2);
+            
             int with1 = bmp1.Width;
             int height1 = bmp1.Height;
             int with2 = bmp2.Width;
@@ -51,10 +54,12 @@ namespace Prototype
                     int avgb = (b + b2) / 2;
                     int avgr = (r + r2) / 2;
                     int avgg = (g + g2) / 2;
-
-                    bmp1.SetPixel(x, y,Color.FromArgb(avga, avgb, avgr, avgg));
+                    Color Result = Color.FromArgb(avga, avgb, avgr, avgg);
+                    bmp1.SetPixel(x, y,Result);
                 }
             }
+            Image bmpT = bmp1;
+            return bmpT;
 
            
 
