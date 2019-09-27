@@ -73,6 +73,17 @@ namespace Prototype
             }
         }
 
+        public static void ConsoleListOutput5(string title, List<Imagen> options)
+        {
+            ConsoleOutput(title);
+            for (int i = 0; i < options.Count; i++)
+            {
+                Console.WriteLine($"({i}) {options[i].Nombre}");
+            }
+
+        }
+
+
         public static int ConsoleReadInput()
         {
             string option = Console.ReadLine();

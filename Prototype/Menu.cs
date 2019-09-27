@@ -218,10 +218,8 @@ namespace Prototype
                                             Retoque.AddTag(imag, t);
                                             Console.WriteLine("Tag:"+ t +"has been added to" +h);
                                             Console.WriteLine("you can make another edition on" + h + "or you can choose (7) exit");
-                                            
-
-
                                             break;
+
                                         case 1:
                                             Console.WriteLine("please input the text you like to add to " + h);
                                             Imagen imag1 = BDE[g];
@@ -230,6 +228,7 @@ namespace Prototype
                                             Console.WriteLine("Text:" + t1 + "has been added to" + h);
                                             Console.WriteLine("you can make another edition on" +h+"or you can choose (7) exit");
                                             break;
+
                                         case 2:
                                             Console.WriteLine("please input a score between 0 to 5 for " + h);
                                             Imagen imag2 = BDE[g];
@@ -244,6 +243,7 @@ namespace Prototype
                                             Console.WriteLine(h + " has now a score of " + t2);
                                             Console.WriteLine("you can make another edition on" + h + "or you can choose (7) exit");
                                             break;
+
                                         case 3:
                                             Image imag3 = BDE[g].Image;
                                             string imagePath = BDE[g].Direccionmemoria;
@@ -252,9 +252,27 @@ namespace Prototype
                                             Retoque.AddFilter(imag3, imagePath, filterChoice);
                                             Console.WriteLine("Filter:" + filters[filterChoice] + "has been aplied to" + h);
                                             Console.WriteLine("you can make another edition on" + h + "or you can choose (7) exit");
-                                           
-
                                             break;
+
+                                        case 4:
+                                            Image imag4 = BDE[g].Image;
+                                            string imagePath1 = BDE[g].Direccionmemoria;
+                                            List<Imagen> BDE2 = new List<Imagen>();
+                                            foreach (var imagen in BDE)
+                                            {
+                                                BDE2.Add(imagen);
+                                            }
+                                            BDE2.RemoveAt(g);
+                                            IOUser.ConsoleListOutput5("with what photo would you like you like to fusion " + h + " with?", BDE2);
+                                            int Selected = IOUser.ConsoleReadInput();
+                                            Image imag5 = BDE2[Selected].Image;
+                                            string imagePath2 = BDE2[Selected].Direccionmemoria;
+                                            string h1 = BDE2[Selected].Nombre;
+                                            ProduccionImagen.MakeFusion(imag4, imag5, imagePath1, imagePath2);
+                                            Console.WriteLine("You have successfully fusioned '" + h + "' with '" + h1 + "'");
+                                            Console.WriteLine("you can make another edition on " + h + "or you can choose (7) exit");
+                                            break;
+
 
                                     }
                                 }
