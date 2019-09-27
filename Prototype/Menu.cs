@@ -312,6 +312,10 @@ namespace Prototype
                                             Console.WriteLine("You have successfully fusioned '" + h + "' with '" + h1 + "'");
                                             Console.WriteLine("you can make another edition on " + h + "or you can choose (7) exit");
                                             break;
+                                        case 5:
+                                            break;
+                                        case 6://Funcion realizada en ProduccionImagenes pero no implementada en menu
+                                            break;
 
 
                                     }
