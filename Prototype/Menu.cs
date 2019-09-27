@@ -204,43 +204,59 @@ namespace Prototype
                                 string h = Path.GetFileName(dirt[g]);
                                 Console.WriteLine("the file: " +h+ " has been selected" );
                                 
-                                IOUser.ConsoleListOutput2("what edition would you like to make to " + h + " ?", edit);
-                                int editionChoice = IOUser.ConsoleReadInput();
-                                switch (editionChoice)
+                                IOUser.ConsoleListOutput3("what edition would you like to make to " + h + " ?", edit);
+                                int editionChoice=0;
+                                while (editionChoice < edit.Length)
                                 {
-                                    case 0:
-                                        Console.WriteLine("please input the tag you wish to add to " + h);
-                                        Imagen imag = BDE[g];
-                                        string t = IOUser.ConsoleReadInputs();
-                                        Retoque.AddTag(imag, t);
-                                        break;
-                                    case 1:
-                                        Console.WriteLine("please input the text you like to add to " + h);
-                                        Imagen imag1 = BDE[g];
-                                        string t1 = IOUser.ConsoleReadInputs();
-                                        Retoque.AddText(imag1, t1, 50, 50);
-                                        break;
-                                    case 2:
-                                        Console.WriteLine("please input a score between 0 to 5 for " + h);
-                                        Imagen imag2 = BDE[g];
-                                        int t2 = IOUser.ConsoleReadInput();
-                                        while (t2<0 || t2 > 5)
-                                        {
-                                            Console.WriteLine("You enter an invalid rating");
-                                            Console.WriteLine("Please enter a number between 0 to 5");
-                                            t2 = IOUser.ConsoleReadInput();
-                                        }
-                                        Retoque.AddRanking(imag2, t2);
-                                        Console.WriteLine(h+" has now a score of "+ t2);
-                                        break;
-                                    case 3:
-                                        Image imag3 = BDE[g].Image;
-                                        string imagePath = BDE[g].Direccionmemoria;
-                                        IOUser.ConsoleListOutput2("what filter would you like to add to " + h + " ?", filters);
-                                        int filterChoice = IOUser.ConsoleReadInput();
-                                        Retoque.AddFilter(imag3, imagePath, filterChoice);
-                                        break;
+                                    editionChoice = IOUser.ConsoleReadInput();
+                                    switch (editionChoice)
+                                    {
+                                        case 0:
+                                            Console.WriteLine("please input the tag you wish to add to " + h);
+                                            Imagen imag = BDE[g];
+                                            string t = IOUser.ConsoleReadInputs();
+                                            Retoque.AddTag(imag, t);
+                                            Console.WriteLine("Tag:"+ t +"has been added to" +h);
+                                            Console.WriteLine("you can make another edition on" + h + "or you can choose (7) exit");
+                                            
 
+
+                                            break;
+                                        case 1:
+                                            Console.WriteLine("please input the text you like to add to " + h);
+                                            Imagen imag1 = BDE[g];
+                                            string t1 = IOUser.ConsoleReadInputs();
+                                            Retoque.AddText(imag1, t1, 50, 50);
+                                            Console.WriteLine("Text:" + t1 + "has been added to" + h);
+                                            Console.WriteLine("you can make another edition on" +h+"or you can choose (7) exit");
+                                            break;
+                                        case 2:
+                                            Console.WriteLine("please input a score between 0 to 5 for " + h);
+                                            Imagen imag2 = BDE[g];
+                                            int t2 = IOUser.ConsoleReadInput();
+                                            while (t2 < 0 || t2 > 5)
+                                            {
+                                                Console.WriteLine("You enter an invalid rating");
+                                                Console.WriteLine("Please enter a number between 0 to 5");
+                                                t2 = IOUser.ConsoleReadInput();
+                                            }
+                                            Retoque.AddRanking(imag2, t2);
+                                            Console.WriteLine(h + " has now a score of " + t2);
+                                            Console.WriteLine("you can make another edition on" + h + "or you can choose (7) exit");
+                                            break;
+                                        case 3:
+                                            Image imag3 = BDE[g].Image;
+                                            string imagePath = BDE[g].Direccionmemoria;
+                                            IOUser.ConsoleListOutput2("what filter would you like to add to " + h + " ?", filters);
+                                            int filterChoice = IOUser.ConsoleReadInput();
+                                            Retoque.AddFilter(imag3, imagePath, filterChoice);
+                                            Console.WriteLine("Filter:" + filters[filterChoice] + "has been aplied to" + h);
+                                            Console.WriteLine("you can make another edition on" + h + "or you can choose (7) exit");
+                                           
+
+                                            break;
+
+                                    }
                                 }
 
 
@@ -287,10 +303,7 @@ namespace Prototype
                         }*/
                         break;
                     case 3:
-                        /*foreach (Character character in characters)
-                        {
-                            System.Console.WriteLine($"Character class: {character.GetType().Name}, Character Name: {character.Name}");
-                        }*/
+                        IOUser.ConsoleOutput("Please input the term to search:");
                         break;
                     case 4:
                         IOUser.ConsoleOutput("SlideShow Option hasnt been implemented yet please choose another option");
