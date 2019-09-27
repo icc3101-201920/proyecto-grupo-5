@@ -109,6 +109,7 @@ namespace Prototype
 
         public static Image AddFilter(Image img, string imgPath, int decition)
         {
+            
             switch (decition)
             {
                 case 0:
@@ -117,7 +118,7 @@ namespace Prototype
                     string t = Path.GetFileName(imgPath);
                     temp.Save(DIR + @"\" + t);
                     return temp;
-                    break;
+                    
 
                 case 1:
                     Bitmap bitmap1 = BW(img);
@@ -125,9 +126,10 @@ namespace Prototype
                     string t1 = Path.GetFileName(imgPath);
                     temp1.Save(DIR + @"\" + t1);
                     return temp1;
-                    break;
+                    
                     
             }
+            return null;
         }
 
     }
