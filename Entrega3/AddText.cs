@@ -217,5 +217,25 @@ namespace Entrega3
             color = "Green";
             addText(editImage, textBox1.Text, textSize, xPosition, yPosition, color);
         }
+
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            /*Image editImage = (Image)cleanPhoto.Clone();
+            string dirIM = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\Entrega3\BinObjects" + @"\" + Path.GetFileNameWithoutExtension(pictureBox1.Name) + ".bin";
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(dirIM, FileMode.Open, FileAccess.Read, FileShare.Read);
+            Imagen Tempo = (Imagen)formatter.Deserialize(stream);
+            Stream stream2 = new FileStream(dirIM, FileMode.Create, FileAccess.Write, FileShare.None);
+            tag s = new tag();
+            s.Name = "SeAgrego de AddText";
+
+            Tempo.Tags = new List<tag>();
+            Tempo.Tags.Add(s);
+            IFormatter formatter2 = new BinaryFormatter();
+            formatter2.Serialize(stream2, Tempo );
+            stream.Close();
+            */
+
+        }
     }
 }

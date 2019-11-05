@@ -108,7 +108,20 @@ namespace Entrega3
             textBox1.Text += "Image height : " + m.Image.Height + "\r\n";
             textBox1.Text += "Image resolution : " + m.Image.VerticalResolution +" x " + m.Image.HorizontalResolution + "\r\n";
             textBox1.Text += "Image Pixel depth : " + Image.GetPixelFormatSize(m.Image.PixelFormat) + "\r\n";
+            string dirIM = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\Entrega3\BinObjects" + @"\"+Path.GetFileNameWithoutExtension(m.Name) +".bin";
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(dirIM, FileMode.Open, FileAccess.Read, FileShare.Read);
+            Imagen Tempo = (Imagen)formatter.Deserialize(stream);
             textBox1.Text += "Tags: ";
+            if(Tempo.Tags != null)
+            {
+                foreach (tag t in Tempo.Tags)
+                {
+                    textBox1.Text += t.Name + " ";
+                }
+            }
+            
+            
             
 
             

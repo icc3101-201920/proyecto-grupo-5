@@ -80,6 +80,10 @@ namespace Entrega3
             //PictureBox Temp = new PictureBox();//
             k.Direccionmemoria = path;
             k.Nombre = Path.GetFileName(path);
+            k.Tags = new List<tag>();
+            tag hj = new tag();
+            hj.Name = "Imported To docs";
+            k.Tags.Add(hj);
             /*Temp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             Temp.ImageLocation = k.Direccionmemoria;
             Temp.Location = new Point(CX, CY);
